@@ -1,0 +1,3 @@
+FROM kindest/node:v1.33.1
+COPY corporate-ca-bundle.crt /usr/local/share/ca-certificates/corporate-ca-bundle.crt
+RUN update-ca-certificates

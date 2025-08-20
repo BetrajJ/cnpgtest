@@ -1,0 +1,4 @@
+FROM kindest/node:v1.33.1
+COPY ghcr-ca.crt /usr/local/share/ca-certificates/ghcr-ca.crt
+COPY corporate-ca-bundle.crt /usr/local/share/ca-certificates/corporate-ca-bundle.crt
+RUN update-ca-certificates

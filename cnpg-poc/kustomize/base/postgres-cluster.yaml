@@ -1,0 +1,42 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: my-database
+spec:
+  instances: 3
+
+  # PostgreSQL configuration
+  postgresql:
+    parameters:
+      max_connections: "100"
+      shared_buffers: "256MB"
+
+  # Storage configuration
+  storage:
+    size: 10Gi
+    storageClass: standard
+
+  # Use Cert-Manager for TLS
+  certificates:
+    clientCaSecret:
+      name: client-ca-secret
+    serverCaSecret:
+      name: server-ca-secret
+
+  # Backup configuration
+  backup:
+    barmanObjectStore:
+      destinationPath: "s3://cnpg-backups/my-database"
+      endpointURL: "http://minio-service.minio-system.svc.cluster.local:9000"
+      s3Credentials:
+        # Use a Secret for access keys, no hardcoding
+        accessKeyId:
+          name: backup-creds
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: backup-creds
+          key: SECRET_ACCESS_KEY
+
+  # Monitoring configuration
+  monitoring:
+    enablePodMonitor: true
