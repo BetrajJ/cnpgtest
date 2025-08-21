@@ -3,15 +3,10 @@ kind: AtlasSchema
 metadata:
   name: my-database-schema
 spec:
-  # Reference a Secret for the connection URL
-  url:
+  urlFrom:
     secretKeyRef:
       name: my-database-connection
       key: url
-
-  # Use SSL for a secure connection
-  sql:
-    - "ALTER ROLE postgres SET sslmode = verify-full;"
 
   # Reference the schema from a ConfigMap
   schema:
