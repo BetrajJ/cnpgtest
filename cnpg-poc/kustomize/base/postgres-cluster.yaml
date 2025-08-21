@@ -18,13 +18,6 @@ spec:
     size: 10Gi
     storageClass: standard
 
-  # Use Cert-Manager for TLS
-  certificates:
-    clientCaSecret:
-      name: client-ca-secret
-    serverCaSecret:
-      name: server-ca-secret
-
   # Backup configuration
   backup:
     barmanObjectStore:
