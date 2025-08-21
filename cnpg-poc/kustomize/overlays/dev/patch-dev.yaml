@@ -12,11 +12,10 @@ spec:
           mountPath: /fluent-bit/etc
         - name: postgresql-log-volume
           mountPath: /var/log/postgresql
-  podTemplate:
-    spec:
-      volumes:
-        - name: fluentbit-config
-          configMap:
-            name: fluent-bit-config
-        - name: postgresql-log-volume
-          emptyDir: {}
+
+  volumes:
+    - name: fluentbit-config
+      configMap:
+        name: fluent-bit-config
+    - name: postgresql-log-volume
+      emptyDir: {}
