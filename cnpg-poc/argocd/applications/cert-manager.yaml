@@ -11,13 +11,13 @@ spec:
     server: https://kubernetes.default.svc
     namespace: cert-manager
   source:
-    repoURL: "https://charts.jetstack.io"
-    targetRevision: v1.18.2
-    chart: cert-manager
+    repoURL: "https://github.com/BetrajJ/cnpgtest.git"
+    targetRevision: HEAD
+    path: cnpg-poc/helm-charts/cert-manager
     helm:
       parameters:
       - name: installCRDs
-        value: "true"
+        value: "true"   
   syncPolicy:
     automated: { prune: true, selfHeal: true }
     syncOptions: 

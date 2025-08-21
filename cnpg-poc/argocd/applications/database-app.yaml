@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/BetrajJ/cnpgtest.git
     targetRevision: HEAD
-    path: kustomize/overlays/dev
+    path: cnpg-poc/kustomize/overlays/dev
   syncPolicy:
     automated: { prune: true, selfHeal: true }
     syncOptions:

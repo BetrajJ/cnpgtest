@@ -13,7 +13,11 @@ spec:
   source:
     repoURL: https://github.com/BetrajJ/cnpgtest.git
     targetRevision: HEAD
-    path: helm-charts/cnpg-operator
+    path: cnpg-poc/helm-charts/cnpg-operator/cloudnative-pg
+    helm:
+      parameters:
+      - name: installCRDs
+        value: "true"
   syncPolicy:
     automated: { prune: true, selfHeal: true }
     syncOptions: 
