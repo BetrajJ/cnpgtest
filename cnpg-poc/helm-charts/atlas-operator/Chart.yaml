@@ -1,8 +1,6 @@
 apiVersion: v2
+appVersion: 0.7.11
+description: The Atlas Kubernetes Operator
 name: atlas-operator
-version: 0.1.0
-appVersion: "0.7.11"
-dependencies:
-- name: atlas-operator
-  version: "0.7.11"
-  repository: "oci://ghcr.io/ariga/charts"
+type: application
+version: 0.7.11
