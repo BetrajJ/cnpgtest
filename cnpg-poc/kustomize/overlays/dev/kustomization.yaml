@@ -16,11 +16,11 @@ secretGenerator:
       - ACCESS_KEY_ID=minioadmin
       - SECRET_ACCESS_KEY=minioadmin
   # PostgreSQL connection string
-  - name: my-database-app
-    literals:
-      - password=PiyJAYujdJ3a9oUYRoU3CD4FxsRcVHIDb2wLTpBfL0g4oKH6opgCPg9tCdPOLx6k
-    options:
-      disableNameSuffixHash: true  
+  #- name: my-database-app
+  #  literals:
+  #    - password=PiyJAYujdJ3a9oUYRoU3CD4FxsRcVHIDb2wLTpBfL0g4oKH6opgCPg9tCdPOLx6k
+  #  options:
+  #    disableNameSuffixHash: true  
 configMapGenerator:
   - name: my-database-configmap
     files:
