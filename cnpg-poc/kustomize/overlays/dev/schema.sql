@@ -1,8 +1,8 @@
 -- Create schema
-CREATE SCHEMA IF NOT EXISTS data_schema;
+CREATE SCHEMA IF NOT EXISTS test_schema;
 
--- Users table
-CREATE TABLE IF NOT EXISTS data_schema.users (
+-- workers table
+CREATE TABLE IF NOT EXISTS test_schema.workers (
   id SERIAL PRIMARY KEY,
   username VARCHAR(50) UNIQUE NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
@@ -16,16 +16,16 @@ CREATE TABLE IF NOT EXISTS data_schema.users (
   status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive', 'suspended'))
 );
 
--- Indexes for users
-CREATE INDEX IF NOT EXISTS idx_users_username ON data_schema.users(username);
-CREATE INDEX IF NOT EXISTS idx_users_email ON data_schema.users(email);
-CREATE INDEX IF NOT EXISTS idx_users_status ON data_schema.users(status);
-CREATE INDEX IF NOT EXISTS idx_users_created_at ON data_schema.users(created_at);
+-- Indexes for workers
+CREATE INDEX IF NOT EXISTS idx_workers_username ON test_schema.workers(username);
+CREATE INDEX IF NOT EXISTS idx_workers_email ON test_schema.workers(email);
+CREATE INDEX IF NOT EXISTS idx_workers_status ON test_schema.workers(status);
+CREATE INDEX IF NOT EXISTS idx_workers_created_at ON test_schema.workers(created_at);
 
--- Orders table
-CREATE TABLE IF NOT EXISTS data_schema.orders (
+-- purchase table
+CREATE TABLE IF NOT EXISTS test_schema.purchase (
   id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES data_schema.users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  worker_id INTEGER REFERENCES test_schema.workers(id) ON DELETE CASCADE ON UPDATE CASCADE,
   order_number VARCHAR(20) UNIQUE NOT NULL,
   total_amount DECIMAL(10,2),
   currency VARCHAR(10) DEFAULT 'USD',
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS data_schema.orders (
   status VARCHAR(20) DEFAULT 'pending' CHECK (status IN ('pending', 'paid', 'shipped', 'cancelled'))
 );
 
--- Indexes for orders
-CREATE INDEX IF NOT EXISTS idx_orders_user_id ON data_schema.orders(user_id);
-CREATE INDEX IF NOT EXISTS idx_orders_order_number ON data_schema.orders(order_number);
-CREATE INDEX IF NOT EXISTS idx_orders_status ON data_schema.orders(status);
+-- Indexes for purchase
+CREATE INDEX IF NOT EXISTS idx_purchase_worker_id ON test_schema.purchase(worker_id);
+CREATE INDEX IF NOT EXISTS idx_purchase_order_number ON test_schema.purchase(order_number);
+CREATE INDEX IF NOT EXISTS idx_purchase_status ON test_schema.purchase(status);
