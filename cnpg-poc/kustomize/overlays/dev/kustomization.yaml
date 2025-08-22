@@ -16,9 +16,9 @@ secretGenerator:
       - ACCESS_KEY_ID=minioadmin
       - SECRET_ACCESS_KEY=minioadmin
   # PostgreSQL connection string
-  - name: my-database-connection
+  - name: my-database-app
     literals:
-      - url=postgresql://postgres:postgres@my-database-rw.dev.svc.cluster.local:5432/postgres
+      - password=PiyJAYujdJ3a9oUYRoU3CD4FxsRcVHIDb2wLTpBfL0g4oKH6opgCPg9tCdPOLx6k
     options:
       disableNameSuffixHash: true  
 configMapGenerator:

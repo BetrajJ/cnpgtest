@@ -3,12 +3,19 @@ kind: AtlasSchema
 metadata:
   name: my-database-schema
 spec:
-  urlFrom:
-    secretKeyRef:
-      name: my-database-connection
-      key: url
+  credentials:
+    scheme: postgres
+    host: my-database-rw.dev.svc.cluster.local
+    user: app
+    passwordFrom:
+      secretKeyRef:
+        name: my-database-app
+        key: password
+    database: app
+    port: 5432
+    parameters:
+      sslmode: disable
 
-  # Reference the schema from a ConfigMap
   schema:
     configMapKeyRef:
       name: my-database-configmap
