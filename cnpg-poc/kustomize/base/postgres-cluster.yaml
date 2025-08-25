@@ -44,4 +44,18 @@ spec:
   # Antiaffinity  
   affinity:
     podAntiAffinityType: preferred
-    topologyKey: kubernetes.io/hostname  
+    topologyKey: kubernetes.io/hostname
+
+  # ADD THIS SECTION to mount the secret as a volume
+  # This is crucial for fixing the "failed to get envs: cache miss" error
+  containers:
+  - name: postgresql
+    volumeMounts:
+      - name: backup-creds-volume
+        mountPath: /run/secrets/cnpg-credentials
+        readOnly: true
+
+  volumes:
+  - name: backup-creds-volume
+    secret:
+      secretName: backup-creds  
