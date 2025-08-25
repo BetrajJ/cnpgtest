@@ -10,17 +10,6 @@ spec:
   cluster:
     name: my-database
 
-  barmanObjectStore:
-    destinationPath: "s3://cnpg-backups-my-database"
-    endpointURL: "http://minio-service.minio-system.svc.cluster.local:9000"
-    s3Credentials:
-      accessKeyId:
-        name: backup-creds
-        key: ACCESS_KEY_ID
-      secretAccessKey:
-        name: backup-creds
-        key: SECRET_ACCESS_KEY
-
   # This is the schedule using standard cron syntax.
   schedule: "0 0 * * *"
   immediate: true
