@@ -27,7 +27,7 @@ spec:
   backup:
     barmanObjectStore:
       destinationPath: "s3://cnpg-backups-my-database"
-      endpointURL: "http://minio-service.minio-system.svc.cluster.local:9000"
+      endpointURL: "http://minio.minio-system.svc.cluster.local:9000"
       s3Credentials:
         # Use a Secret for access keys, no hardcoding
         accessKeyId:
@@ -36,6 +36,10 @@ spec:
         secretAccessKey:
           name: backup-creds
           key: SECRET_ACCESS_KEY
+      wal:
+        retention: "2d"
+      data:
+        retention: "2d"    
 
   # Monitoring configuration
   monitoring:
