@@ -19,8 +19,8 @@ secretGenerator:
   #- name: my-database-app
   #  literals:
   #    - password=PiyJAYujdJ3a9oUYRoU3CD4FxsRcVHIDb2wLTpBfL0g4oKH6opgCPg9tCdPOLx6k
-  #  options:
-  #    disableNameSuffixHash: true  
+    options:
+      disableNameSuffixHash: true  
 configMapGenerator:
   - name: my-database-configmap
     files:
