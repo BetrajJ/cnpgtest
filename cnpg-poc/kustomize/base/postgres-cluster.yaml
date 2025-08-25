@@ -4,6 +4,9 @@ metadata:
   name: my-database
 spec:
   instances: 3
+  replicationSlots:
+    highAvailability:
+      enabled: true
 
   # PostgreSQL configuration
   postgresql:
@@ -11,6 +14,9 @@ spec:
       max_connections: "100"
       shared_buffers: "256MB"
       logging_collector: 'on'
+      max_wal_senders: "10"
+      max_replication_slots: "10"
+      wal_level: "logical"
 
   # Storage configuration
   storage:
@@ -34,3 +40,8 @@ spec:
   # Monitoring configuration
   monitoring:
     enablePodMonitor: true
+  
+  # Antiaffinity  
+  affinity:
+    podAntiAffinityType: preferred
+    topologyKey: kubernetes.io/hostname  
