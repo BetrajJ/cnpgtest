@@ -4,3 +4,5 @@ resources:
   - atlas-schema.yaml
   - cert-manager-issuer.yaml
   - postgres-cluster.yaml
+  - on-demand-backup.yaml
+  - scheduled-backup.yaml
