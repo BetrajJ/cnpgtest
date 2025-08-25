@@ -3,4 +3,4 @@ kind: Cluster
 metadata:
   name: my-database
 spec:
-  instances: 1
+  instances: 2
