@@ -3,6 +3,7 @@ kind: Cluster
 metadata:
   name: my-database
 spec:
+  enableSuperuserAccess: true
   instances: 3
   replicationSlots:
     highAvailability:

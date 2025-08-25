@@ -4,7 +4,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: ScheduledBackup
 metadata:
-  name: my-database-scheduled-backup
+  name: my-database-scheduled-backup1
 spec:
   # The name of the cluster you want to back up
   cluster:

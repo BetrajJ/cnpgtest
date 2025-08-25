@@ -4,7 +4,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Backup
 metadata:
-  name: my-database-manual-backup-20250825
+  name: my-database-manual-backup1-20250825
 spec:
   # The name of the cluster you want to back up
   cluster:
