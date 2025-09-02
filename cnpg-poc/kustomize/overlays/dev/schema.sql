@@ -291,6 +291,7 @@ CREATE TABLE IF NOT EXISTS test_schema.workers (
   last_name VARCHAR(50),
   phone_number VARCHAR(20),
   address TEXT,
+  house_name,
   department VARCHAR(100),                
   role VARCHAR(50),                       
   hire_date DATE DEFAULT CURRENT_DATE,   
@@ -319,6 +320,7 @@ CREATE TABLE IF NOT EXISTS test_schema.purchase (
   shipping_address TEXT,
   billing_address TEXT,
   payment_method VARCHAR(50),
+  payment_status,
   tracking_number VARCHAR(50),
   order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   status VARCHAR(20) DEFAULT 'pending' CHECK (status IN ('pending', 'paid', 'shipped', 'cancelled'))
