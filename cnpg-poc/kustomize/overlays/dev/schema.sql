@@ -301,7 +301,7 @@ CREATE TABLE IF NOT EXISTS test_schema.workers (
   last_login TIMESTAMP,
   status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive', 'suspended'))
 );
-i
+
 -- Indexes for workers
 CREATE INDEX IF NOT EXISTS idx_workers_username ON test_schema.workers(username);
 CREATE INDEX IF NOT EXISTS idx_workers_email ON test_schema.workers(email);
