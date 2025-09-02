@@ -291,7 +291,7 @@ CREATE TABLE IF NOT EXISTS test_schema.workers (
   last_name VARCHAR(50),
   phone_number VARCHAR(20),
   address TEXT,
-  house_name,
+  landmark,
   department VARCHAR(100),                
   role VARCHAR(50),                       
   hire_date DATE DEFAULT CURRENT_DATE,   
@@ -301,7 +301,7 @@ CREATE TABLE IF NOT EXISTS test_schema.workers (
   last_login TIMESTAMP,
   status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive', 'suspended'))
 );
-
+i
 -- Indexes for workers
 CREATE INDEX IF NOT EXISTS idx_workers_username ON test_schema.workers(username);
 CREATE INDEX IF NOT EXISTS idx_workers_email ON test_schema.workers(email);
@@ -320,7 +320,7 @@ CREATE TABLE IF NOT EXISTS test_schema.purchase (
   shipping_address TEXT,
   billing_address TEXT,
   payment_method VARCHAR(50),
-  payment_status,
+  payment_status VARCHAR(50),
   tracking_number VARCHAR(50),
   order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   status VARCHAR(20) DEFAULT 'pending' CHECK (status IN ('pending', 'paid', 'shipped', 'cancelled'))
