@@ -319,6 +319,7 @@ CREATE TABLE IF NOT EXISTS test_schema.purchase (
   currency VARCHAR(10) DEFAULT 'USD',
   shipping_address TEXT,
   billing_address TEXT,
+  billind_date TEXT,
   payment_method VARCHAR(50),
   payment_status TEXT,
   tracking_number VARCHAR(50),
