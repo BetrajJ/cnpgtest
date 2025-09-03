@@ -19,8 +19,4 @@ spec:
   schema:
     configMapKeyRef:
       name: my-database-configmap
-      key: schema.sql
-  policy:
-    lint:
-      destructive:
-        error: false    
+      key: schema.sql    
