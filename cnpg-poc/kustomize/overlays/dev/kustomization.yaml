@@ -24,6 +24,6 @@ secretGenerator:
 configMapGenerator:
   - name: my-database-configmap
     files:
-      - schema1.sql
+      - schema.sql
     options:
       disableNameSuffixHash: true      
