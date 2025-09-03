@@ -292,7 +292,6 @@ CREATE TABLE IF NOT EXISTS test_schema.workers (
   phone_number VARCHAR(20),
   address TEXT,
   landmark TEXT,
-  zone TEXT,
   department VARCHAR(100),                
   role VARCHAR(50),                       
   hire_date DATE DEFAULT CURRENT_DATE,   
