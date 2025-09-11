@@ -304,6 +304,13 @@ REFERENCES source (source_id) NOT VALID;
 
 ALTER TABLE audit_trail_attributes VALIDATE CONSTRAINT FK_audit_trail_attributes_modified_by;
 
+INSERT INTO audit_trail_attributes (attribute, modified_by, modified_date) VALUES ('URL Category Deleted', 2, now());
+INSERT INTO audit_trail_attributes (attribute, modified_by, modified_date) VALUES ('URL Category Updated', 2, now());
+INSERT INTO audit_trail_attributes (attribute, modified_by, modified_date) VALUES ('URL Domain Deleted', 2, now());
+INSERT INTO audit_trail_attributes (attribute, modified_by, modified_date) VALUES ('URL Domain Updated', 2, now());
+INSERT INTO audit_trail_attributes (attribute, modified_by, modified_date) VALUES ('URL Web Reputation Updated', 2, now());
+INSERT INTO audit_trail_attributes (attribute, modified_by, modified_date) VALUES ('URL Prevalence Updated', 2, now());
+
 
 CREATE TABLE audit_trail(
 	audit_trail_id int NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1),
