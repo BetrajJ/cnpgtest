@@ -19,4 +19,4 @@ spec:
   schema:
     configMapKeyRef:
       name: my-database-configmap
-      key: schema.sql    
+      key: postgresschema.sql

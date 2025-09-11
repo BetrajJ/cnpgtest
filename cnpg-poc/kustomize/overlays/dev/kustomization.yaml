@@ -20,10 +20,10 @@ secretGenerator:
   #  literals:
   #    - password=PiyJAYujdJ3a9oUYRoU3CD4FxsRcVHIDb2wLTpBfL0g4oKH6opgCPg9tCdPOLx6k
     options:
-      disableNameSuffixHash: true  
+      disableNameSuffixHash: true
 configMapGenerator:
   - name: my-database-configmap
     files:
-      - schema.sql
+      - postgresschema.sql
     options:
-      disableNameSuffixHash: true      
+      disableNameSuffixHash: true
