@@ -70,9 +70,9 @@ CREATE INDEX IX_urls_prevalence ON urls
 CREATE TABLE categories_trellix(
 	cat_id int NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1),
 	cat_short varchar(2) NOT NULL,
-	cat_frame varchar(10) NOT NULL,
+	cat_frame varchar(20) NOT NULL,
 	cat_long varchar(50) NOT NULL,
-	short_name varchar(2) NULL,
+	short_name varchar(4) NULL,
 	cat_code_four int NULL,
 	description Text NULL,
 	webrep smallint NOT NULL,
