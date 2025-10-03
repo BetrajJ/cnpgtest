@@ -13,7 +13,7 @@ INSERT INTO source (name) VALUES ('Other');
 
 
 CREATE TABLE urls(
-	url_id bigint NOT NULL,
+	url_id bigint NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1),
 	url text NOT NULL,
 	domain_name_trellix varchar(256) NULL,
 	active_domain varchar(10) NOT NULL,
