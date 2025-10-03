@@ -13,10 +13,9 @@ INSERT INTO source (name) VALUES ('Other');
 
 
 CREATE TABLE urls(
-	url_id bigint NOT NULL,
+	url_id bigint NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1),
 	url text NOT NULL,
 	domain_name_trellix varchar(256) NULL,
-	domain_name_zvelo varchar(256) NULL,
 	active_domain varchar(10) NOT NULL,
 	webrep smallint NOT NULL,
 	prevalence int NOT NULL,
@@ -31,9 +30,6 @@ CREATE TABLE urls(
 )
 );
 
-ALTER TABLE urls ADD  CONSTRAINT CK_urls_source CHECK  ((source = 'Cerberian' or (source = 'CLT' or (source = 'Customer' or (source = 'Legacy' or (source = 'N2H2' or (source = 'Rulespace' or (source = 'WebWasher' or (source = 'Saudi' or (source = 'Siemens' or source = 'VertexLink')))))))))) NOT VALID;
-
-ALTER TABLE urls VALIDATE CONSTRAINT CK_urls_source;
 
 ALTER TABLE urls ADD CONSTRAINT FK_urls_modified_by FOREIGN KEY(modified_by)
 REFERENCES source (source_id) NOT VALID;
@@ -43,11 +39,6 @@ ALTER TABLE urls VALIDATE CONSTRAINT FK_urls_modified_by;
 CREATE INDEX IX_urls_domain_name_trellix ON urls
 (
 	domain_name_trellix ASC
-) ;
-
-CREATE INDEX IX_urls_domain_name_zvelo ON urls
-(
-	domain_name_zvelo ASC
 ) ;
 
 CREATE INDEX IX_urls_active_domain ON urls
