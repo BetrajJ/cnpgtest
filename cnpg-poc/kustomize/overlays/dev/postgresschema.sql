@@ -19,7 +19,6 @@ CREATE TABLE urls(
 	domain_name_zvelo varchar(256) NULL,
 	active_domain varchar(10) NOT NULL,
 	webrep smallint NOT NULL,
-	source varchar(50) NOT NULL,
 	prevalence int NOT NULL,
 	publish_xl Boolean NOT NULL,
 	publish_ts Boolean NOT NULL,
@@ -65,6 +64,7 @@ CREATE INDEX IX_urls_prevalence ON urls
 (
 	prevalence ASC
 ) ;
+
 
 
 CREATE TABLE categories_trellix(
