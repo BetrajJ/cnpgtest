@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: pgagent
-        image: dpage/pgagent:latest
+        image: local-pgagent-scheduler:v1
+        imagePullPolicy: IfNotPresent
         args:
           - "-f"
           - "host=$(PGHOST) dbname=$(PGDATABASE) user=$(PGUSER)"
