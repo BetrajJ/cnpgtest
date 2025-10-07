@@ -21,7 +21,7 @@ spec:
           - "host=$(PGHOST) dbname=$(PGDATABASE) user=$(PGUSER)"
         env:
           - name: PGHOST
-            value: postgres-database-rw
+            value: my-database-rw
           - name: PGDATABASE
             value: postgres
           - name: PGUSER
@@ -29,5 +29,5 @@ spec:
           - name: PGPASSWORD
             valueFrom:
               secretKeyRef:
-                name: postgres-database-superuser
+                name: my-database-superuser
                 key: password
