@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgagent
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgagent
+  template:
+    metadata:
+      labels:
+        app: pgagent
+    spec:
+      containers:
+      - name: pgagent
+        image: dpage/pgagent:latest
+        args:
+          - "-f"
+          - "host=$(PGHOST) dbname=$(PGDATABASE) user=$(PGUSER)"
+        env:
+          - name: PGHOST
+            value: postgres-database-rw
+          - name: PGDATABASE
+            value: postgres
+          - name: PGUSER
+            value: postgres
+          - name: PGPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-database-superuser
+                key: password
