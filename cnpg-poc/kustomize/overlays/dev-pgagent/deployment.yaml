@@ -19,7 +19,7 @@ spec:
         imagePullPolicy: IfNotPresent
         args:
           - "-f"
-          - "host=my-database-rw dbname=app user=postgres password=${PGPASSWORD}"
+          - "host=my-database-rw dbname=app user=postgres"
         env:
           - name: PGPASSWORD
             valueFrom:
