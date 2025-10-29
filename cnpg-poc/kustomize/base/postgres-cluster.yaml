@@ -27,8 +27,7 @@ spec:
   # Backup configuration
   backup:
     barmanObjectStore:
-      destinationPath: "s3://cnpg-backups-my-database"
-      endpointURL: "http://minio.minio-system.svc.cluster.local:9000"
+      destinationPath: "s3://ssecaturldev/cnpg-database-backup/"
       s3Credentials:
         # Use a Secret for access keys, no hardcoding
         accessKeyId:
@@ -36,14 +35,13 @@ spec:
           key: ACCESS_KEY_ID
         secretAccessKey:
           name: backup-creds
-          key: SECRET_ACCESS_KEY
-    retentionPolicy: "1d"      
+          key: ACCESS_SECRET_KEY
+    retentionPolicy: "1d"
 
   # Monitoring configuration
   monitoring:
     enablePodMonitor: true
-  
   # Antiaffinity  
   affinity:
     podAntiAffinityType: preferred
-    topologyKey: kubernetes.io/hostnames  
+    topologyKey: kubernetes.io/hostnames

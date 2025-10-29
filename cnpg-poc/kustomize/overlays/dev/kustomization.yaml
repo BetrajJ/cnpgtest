@@ -4,23 +4,12 @@ namespace: dev
 resources:
   - ../../base
   - fluent-bit-config.yaml
+  - sealed-backup-creds.yaml
 patches:
   - path: patch-dev.yaml
     target:
       kind: Cluster
       name: my-database
-secretGenerator:
-  # MinIO credentials
-  - name: backup-creds
-    literals:
-      - ACCESS_KEY_ID=admin
-      - SECRET_ACCESS_KEY=DWl1aGpQgr
-  # PostgreSQL connection string
-  #- name: my-database-app
-  #  literals:
-  #    - password=PiyJAYujdJ3a9oUYRoU3CD4FxsRcVHIDb2wLTpBfL0g4oKH6opgCPg9tCdPOLx6k
-    options:
-      disableNameSuffixHash: true
 configMapGenerator:
   - name: my-database-configmap
     files:
