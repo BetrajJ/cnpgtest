@@ -37,7 +37,13 @@ spec:
           name: backup-creds
           key: ACCESS_SECRET_KEY
     retentionPolicy: "1d"
-
+  podTemplate:
+    spec:
+      containers:
+        - name: postgres
+          env:
+            - name: AWS_SSL_VERIFY
+              value: "false"
   # Monitoring configuration
   monitoring:
     enablePodMonitor: true
