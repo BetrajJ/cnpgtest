@@ -36,10 +36,10 @@ spec:
         secretAccessKey:
           name: backup-creds
           key: ACCESS_SECRET_KEY
+      endpointCA:
+        name: s3-ca-cert
+        key: ca-bundle.pem
     retentionPolicy: "1d"
-  env:
-    - name: AWS_SSL_VERIFY
-      value: "false"
   # Monitoring configuration
   monitoring:
     enablePodMonitor: true
