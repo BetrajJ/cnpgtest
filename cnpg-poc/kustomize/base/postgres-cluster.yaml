@@ -37,7 +37,7 @@ spec:
           name: backup-creds
           key: ACCESS_SECRET_KEY
     retentionPolicy: "1d"
-  podTemplate:
+  postgresPodTemplate:
     spec:
       containers:
         - name: postgres
